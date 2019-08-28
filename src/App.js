@@ -28,7 +28,9 @@ class App extends React.Component {
 		if(favorited) {
 			new_arr = this.state.favorites.filter(item => item != post)	
 		} else {
-			new_arr = [...this.state.favorites, post]
+			if(!this.state.favorites.includes(post)) {
+				new_arr = [...this.state.favorites, post]
+			}
 		}
 
 		this.setState({ favorites: new_arr })
